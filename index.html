@@ -155,7 +155,8 @@
   <section id="inicio" class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-brand-50 via-white to-white"></div>
 
-    <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-16 md:pt-14 md:pb-16 grid md:grid-cols-2 gap-10 items-center">
+    <div
+      class="relative max-w-6xl mx-auto px-6 pt-16 pb-16 min-h-[70vh] flex flex-col justify-center md:grid md:grid-cols-2 gap-10 items-center">
       <div class="fade-up">
         <p
           class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-sm sm:text-xs font-medium">
@@ -388,7 +389,7 @@
       <div class="fade-up">
         <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Como funciona</h2>
         <p class="mt-3 text-slate-700 max-w-2xl">
-          Um passo a passo simples: WhatsApp → avaliação → procedimento → orientações de cuidados.
+          Do primeiro contato ao pós-procedimento, cuidamos de cada detalhe.
         </p>
       </div>
 
@@ -402,7 +403,8 @@
         <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
           <p class="text-xs font-semibold text-brand-800">PASSO 02</p>
           <p class="mt-2 font-semibold text-slate-900">Avaliação gratuita</p>
-          <p class="mt-2 text-sm text-slate-600">Sem compromisso. Avaliamos seu caso com cuidado e definimos o melhor caminho para alcançar seu objetivo.</p>
+          <p class="mt-2 text-sm text-slate-600">Sem compromisso. Avaliamos seu caso com cuidado e definimos o melhor
+            caminho para alcançar seu objetivo.</p>
         </div>
 
         <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
@@ -523,8 +525,6 @@
     <div class="max-w-4xl mx-auto px-6">
       <div class="fade-up text-center">
         <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Dúvidas frequentes</h2>
-        <p class="mt-3 text-slate-700">Perguntas comuns sobre Toxina Botulínica (Botox), preenchimento, enzimas e
-          vasinhos.</p>
       </div>
 
       <div class="mt-10 space-y-3">
@@ -590,21 +590,30 @@
   </section>
 
   <!-- CTA FINAL -->
-  <section class="py-16 md:py-20 bg-brand-800">
+  <section class="py-16 md:py-20 bg-gradient-to-r from-brand-800 via-brand-700 to-brand-800">
     <div class="max-w-6xl mx-auto px-6">
       <div
-        class="fade-up rounded-2xl bg-white/10 border border-white/15 p-8 text-white flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+        class="fade-up rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-white flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+
         <div>
-          <h2 class="font-serif text-3xl">Agende sua avaliação gratuita pelo WhatsApp</h2>
-          <p class="mt-2 text-brand-100">Toxina Botulínica, preenchimento, enzimas, bioestimuladores e escleroterapia em
-            São Paulo.
+          <div class="w-16 h-[2px] bg-brand-300 mb-6"></div>
+
+          <h2 class="font-serif text-3xl md:text-4xl">
+            Sua melhor versão começa com aqui
+          </h2>
+
+          <p class="mt-3 text-brand-100 text-lg">
+            Agente uma avaliação gratuita e descubra o tratamento ideal para valorizar sua beleza com naturalidade e
+            segurança.
           </p>
         </div>
+
         <a target="_blank" rel="noopener"
           href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-brand-900 hover:bg-brand-50 shadow-soft">
-          Agendar avaliação gratuita
+          class="inline-flex text-center items-center justify-center px-7 py-4 rounded-xl bg-white text-brand-900 font-semibold hover:bg-brand-50 shadow-lg transition-all duration-300 hover:scale-105">
+          Agendar avaliação
         </a>
+
       </div>
     </div>
   </section>
