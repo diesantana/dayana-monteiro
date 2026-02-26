@@ -31,6 +31,9 @@
     tailwind.config = {
       theme: {
         extend: {
+          screens: {
+            desk: "1150px",
+          },
           fontFamily: {
             sans: ["Inter", "ui-sans-serif", "system-ui"],
             serif: ["Playfair Display", "ui-serif", "Georgia"],
@@ -47,14 +50,14 @@
               700: "#7B5239",
               800: "#5B3D2B",
               900: "#3A261B",
-            }
+            },
           },
           boxShadow: {
-            soft: "0 10px 30px rgba(17, 24, 39, .10)"
-          }
-        }
-      }
-    }
+            soft: "0 10px 30px rgba(17, 24, 39, .10)",
+          },
+        },
+      },
+    };
   </script>
 
   <style>
@@ -95,7 +98,7 @@
 
   <!-- NAV -->
   <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
       <a href="#inicio" class="flex items-center gap-2">
         <!-- logo -->
         <div class="h-11 w-11 rounded-2xl bg-brand-100 overflow-hidden border border-brand-200 shadow-sm">
@@ -103,12 +106,16 @@
             loading="eager" />
         </div>
         <div class="leading-tight">
-          <p class="font-serif text-lg text-slate-900">Clínica Plenitude</p>
-          <p class="text-sm sm:text-xs text-slate-600 -mt-0.5">Estética facial e corporal</p>
+          <p class="font-serif text-xl md:text-2xl text-slate-900">
+            Clínica Plenitude
+          </p>
+          <p class="text-xs sm:text-sm text-slate-600 -mt-1">
+            Estética facial e corporal
+          </p>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-700">
+      <nav class="hidden desk:flex items-center gap-8 text-base text-slate-700">
         <a class="hover:text-brand-800" href="#procedimentos">Procedimentos</a>
         <a class="hover:text-brand-800" href="#como-funciona">Como funciona</a>
         <a class="hover:text-brand-800" href="#sobre">Sobre</a>
@@ -120,11 +127,11 @@
       <div class="flex items-center gap-3">
         <a target="_blank" rel="noopener"
           href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-          class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-700 text-white text-sm hover:bg-brand-800 shadow-soft">
+          class="hidden desk:inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-700 text-white text-sm hover:bg-brand-800 shadow-soft">
           Agendar no WhatsApp
         </a>
 
-        <button id="btnMobile" class="md:hidden p-2 rounded-xl border border-slate-200" aria-label="Abrir menu">
+        <button id="btnMobile" class="desk:hidden p-2 rounded-xl border border-slate-200" aria-label="Abrir menu">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -133,7 +140,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="menuMobile" class="md:hidden hidden border-t border-slate-200 bg-white">
+    <div id="menuMobile" class="desk:hidden hidden border-t border-slate-200 bg-white">
       <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-base sm:text-sm">
         <a class="py-2" href="#procedimentos">Procedimentos</a>
         <a class="py-2" href="#como-funciona">Como funciona</a>
