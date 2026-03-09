@@ -38,10 +38,6 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#f5efe9" />
 
-  <!-- Font Awesome (WhatsApp) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    referrerpolicy="no-referrer">
-
   <script>
     tailwind.config = {
       theme: {
@@ -95,13 +91,37 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .75rem 1rem;
+      overflow: visible;
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: .75rem;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, .10);
+      z-index: 999;
+    }
   </style>
 </head>
 
 <body class="bg-white text-slate-800 font-sans scroll-smooth text-[15px] sm:text-base">
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
 
   <!-- Top bar -->
-  <div class="hidden md:block bg-brand-50 border-b border-brand-100">
+  <div class="hidden md:block bg-brand-50 border-b border-brand-100" aria-label="Informações de contato">
     <div class="max-w-6xl mx-auto px-6 py-2 text-sm flex items-center justify-between text-slate-700">
       <p>📍 Estrada do Bandeirante, 1642, Ferraz de Vasconcelos SP</p>
       <div class="flex items-center gap-4">
@@ -117,26 +137,35 @@
       <!-- LOGO -->
       <a href="#inicio" class="flex items-center shrink-0">
         <img src="assets/logo-careday-header.png" alt="CareDay Estética"
-          class="block h-10 md:h-14 max-w-[220px] md:max-w-none w-auto object-contain" loading="eager" />
+          class="block h-10 md:h-14 max-w-[220px] md:max-w-none w-auto object-contain" loading="eager" width="811"
+          height="213" />
       </a>
 
-      <nav class="hidden desk:flex items-center gap-8 text-base text-slate-700">
-        <a class="hover:text-brand-800" href="#procedimentos">Procedimentos</a>
-        <a class="hover:text-brand-800" href="#como-funciona">Como funciona</a>
-        <a class="hover:text-brand-800" href="#sobre">Sobre</a>
-        <a class="hover:text-brand-800" href="#espaco">Nosso Espaço</a>
-        <a class="hover:text-brand-800" href="#faq">FAQ</a>
-        <a class="hover:text-brand-800" href="#contato">Contato</a>
+      <nav class="hidden desk:flex items-center gap-8 text-base text-slate-700" aria-label="Navegação principal">
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#procedimentos">Procedimentos</a>
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#como-funciona">Como funciona</a>
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#sobre">Sobre</a>
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#espaco">Nosso Espaço</a>
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#faq">FAQ</a>
+        <a class="hover:text-brand-800 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+          href="#contato">Contato</a>
       </nav>
 
       <div class="flex items-center gap-3">
         <a target="_blank" rel="noopener"
           href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-          class="hidden desk:inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-700 text-white text-sm hover:bg-brand-800 shadow-soft">
+          class="hidden desk:inline-flex items-center justify-center px-4 py-2 rounded-xl bg-brand-700 text-white text-sm hover:bg-brand-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2">
           Agendar no WhatsApp
         </a>
 
-        <button id="btnMobile" class="desk:hidden p-2 rounded-xl border border-slate-200" aria-label="Abrir menu">
+        <button id="btnMobile"
+          class="desk:hidden p-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2"
+          aria-label="Abrir menu" aria-expanded="false" aria-controls="menuMobile">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -145,7 +174,7 @@
     </div>
 
     <!-- Mobile menu -->
-    <div id="menuMobile"
+    <nav id="menuMobile" aria-label="Navegação mobile" aria-hidden="true"
       class="desk:hidden hidden border-t border-slate-200 bg-white max-h-[calc(100vh-80px)] overflow-y-auto">
       <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-3 text-base sm:text-sm">
         <a class="py-2" href="#procedimentos">Procedimentos</a>
@@ -161,540 +190,558 @@
           Agendar no WhatsApp
         </a>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="inicio" class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-brand-50 via-white to-white"></div>
+  <main id="conteudo-principal">
 
-    <div
-      class="relative max-w-6xl mx-auto px-6 pt-16 pb-16 min-h-[70vh] flex flex-col justify-center desk:grid desk:grid-cols-2 gap-10 items-center">
-      <div class="fade-up">
-        <p
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-sm sm:text-xs font-medium">
-          Estética facial e corporal
-        </p>
-
-        <h1 class="mt-4 font-serif text-4xl md:text-5xl text-slate-900 leading-tight">
-          Realce sua beleza com naturalidade
-        </h1>
-
-        <p class="mt-4 text-slate-700 text-base md:text-lg">
-          Tratamentos personalizados para valorizar seus traços e fortalecer sua autoestima.
-        </p>
-
-        <div class="mt-6 flex flex-col sm:flex-row gap-3">
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-            class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft">
-            Agendar avaliação gratuita
-          </a>
-
-          <a href="#procedimentos"
-            class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 hover:border-brand-300 hover:bg-brand-50">
-            Ver procedimentos
-          </a>
-        </div>
-      </div>
-
-      <div class="hidden desk:block fade-up md:justify-self-end">
-        <div class="relative">
-          <div class="absolute -inset-4 bg-brand-100/70 rounded-[2.5rem] blur-2xl"></div>
-          <div class="relative rounded-[2rem] overflow-hidden shadow-soft ring-soft bg-slate-100">
-            <img src="assets/spa,skincare.webp" alt="Clínica de estética"
-              class="w-full h-[420px] md:h-[520px] object-cover" loading="lazy" width="1200" height="900" />
-          </div>
-
-          <div class="absolute -bottom-6 left-6 right-6 glass border border-slate-200 rounded-2xl p-4 shadow-soft">
-            <p class="text-sm font-semibold text-slate-900">Sua melhor versão começa aqui</p>
-            <p class="text-sm sm:text-xs text-slate-600 mt-1">Na CareDay Estética, cada procedimento é planejado para
-              valorizar
-              sua beleza</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTOCUIDADO -->
-  <section class="py-14 bg-brand-50 relative overflow-hidden">
-
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-
-      <!-- Linha decorativa superior -->
-      <div class="w-16 h-[2px] bg-brand-300 mx-auto mb-10"></div>
-
-      <!-- Aspas decorativas -->
-      <div class="text-6xl text-brand-200 font-serif leading-none mb-4 select-none">
-        “
-      </div>
-
-      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-        O autocuidado é o primeiro passo para resgatar sua autoconfiança e fortalecer sua autoestima.
-      </p>
-
-      <p class="mt-8 text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-        Quando você valoriza e realça sua beleza natural, você não está apenas cuidando da aparência — está reafirmando
-        o seu valor.
-      </p>
-
-      <p class="mt-8 text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
-        Você merece se olhar no espelho e se sentir bem, segura e confiante.
-      </p>
-
-      <p class="mt-12 text-2xl md:text-3xl font-serif text-brand-800">
-        Torne-se sua prioridade.
-      </p>
-
-      <p class="mt-6 text-lg text-gray-600">
-        Cuide de você, para continuar cuidando de quem você ama com leveza, força e equilíbrio.
-      </p>
-
-      <!-- Divisor inferior -->
-      <div class="w-16 h-[2px] bg-brand-300 mx-auto mt-12"></div>
-
-    </div>
-  </section>
-
-  <!-- PROCEDIMENTOS -->
-  <section id="procedimentos" class="pt-16 md:pt-20 pb-8 md:pb-12 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6">
-
-      <div class="fade-up text-center">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">
-          Procedimentos
-        </h2>
-      </div>
-
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-24 items-stretch">
-
-        <!-- Toxina -->
-        <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
-        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
-        flex flex-col h-full">
-          <div class="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-              <img src="assets/botox.webp" alt="Toxina botulínica" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
-            Toxina Botulínica
-          </h3>
-
-          <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
-            Suaviza linhas de expressão indesejadas como pé de galinha, linha do bravo na glabela, sorriso triste, rugas
-            dinâmicas na testa. A toxina também é muito usada para hiperidrose, o suor excessivo nas axilas, atinja seus
-            objetivos com naturalidade e confiança.
-          </p>
-
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Toxina%20Botulínica." class="mt-auto inline-flex items-center justify-center px-6 py-2 
-          rounded-full bg-brand-700 text-white text-sm 
-          hover:bg-brand-800 transition">
-            Saiba mais
-          </a>
-        </article>
-
-        <!-- Preenchimento -->
-        <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
-        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
-        flex flex-col h-full">
-          <div class="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-              <img src="assets/preenchimento.JPG" alt="Preenchimento facial" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
-            Preenchimento Facial
-          </h3>
-
-          <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
-            Recupere o volume e a harmonia do rosto com equilíbrio e elegância, destaque seus traços e contornos e
-            conquiste uma aparência descansada e confiante.
-          </p>
-
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Preenchimento%20Facial." class="mt-auto inline-flex items-center justify-center px-6 py-2 
-          rounded-full bg-brand-700 text-white text-sm 
-          hover:bg-brand-800 transition">
-            Saiba mais
-          </a>
-        </article>
-
-        <!-- Bioestimuladores -->
-        <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
-        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
-        flex flex-col h-full">
-          <div class="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-              <img src="assets/colageno.webp" alt="Bioestimuladores de colágeno" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
-            Bioestimuladores de Colágeno
-          </h3>
-
-          <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
-            Procedimento que ativa a produção natural de colágeno com uma melhora progressiva, trazendo de volta a
-            firmeza, elasticidade e viço da pele.
-          </p>
-
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Bioestimuladores." class="mt-auto inline-flex items-center justify-center px-6 py-2 
-          rounded-full bg-brand-700 text-white text-sm 
-          hover:bg-brand-800 transition">
-            Saiba mais
-          </a>
-        </article>
-
-        <!-- Enzimas -->
-        <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
-        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
-        flex flex-col h-full">
-          <div class="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-              <img src="assets/intradermoterapia.webp" alt="Intradermoterapia" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
-            Intradermoterapia
-          </h3>
-
-          <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
-            A intradermoterapia é utilizada para perda de peso total ou localizada, em locais como abdômen, papada,
-            culote, braços, também usada para queda de cabelo e diminuição de celulite.
-          </p>
-
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Intradermoterapia." class="mt-auto inline-flex items-center justify-center px-6 py-2 
-          rounded-full bg-brand-700 text-white text-sm 
-          hover:bg-brand-800 transition">
-            Saiba mais
-          </a>
-        </article>
-
-        <!-- Escleroterapia -->
-        <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
-        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
-        flex flex-col h-full">
-          <div class="absolute -top-10 left-1/2 -translate-x-1/2">
-            <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
-              <img src="assets/escleroterapia.webp" alt="Escleroterapia" class="w-full h-full object-cover">
-            </div>
-          </div>
-
-          <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
-            Escleroterapia
-          </h3>
-
-          <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
-            Secagem de vasinhos com acompanhamento e orientações pós-procedimento.
-          </p>
-
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Escleroterapia." class="mt-auto inline-flex items-center justify-center px-6 py-2 
-          rounded-full bg-brand-700 text-white text-sm 
-          hover:bg-brand-800 transition">
-            Saiba mais
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- COMO FUNCIONA -->
-  <section id="como-funciona" class="py-16 md:py-20 bg-slate-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="fade-up">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Como funciona</h2>
-        <p class="mt-3 text-slate-700 max-w-2xl">
-          Do primeiro contato ao pós-procedimento, cuidamos de cada detalhe.
-        </p>
-      </div>
-
-      <div class="mt-10 grid md:grid-cols-4 gap-6">
-        <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
-          <p class="text-sm sm:text-xs font-semibold text-brand-800">PASSO 01</p>
-          <p class="mt-2 font-semibold text-slate-900">WhatsApp</p>
-          <p class="mt-2 text-sm text-slate-600">Você chama e conta o que quer melhorar.</p>
-        </div>
-
-        <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
-          <p class="text-xs font-semibold text-brand-800">PASSO 02</p>
-          <p class="mt-2 font-semibold text-slate-900">Avaliação gratuita</p>
-          <p class="mt-2 text-sm text-slate-600">Sem compromisso. Avaliamos seu caso com cuidado e definimos o melhor
-            caminho para alcançar seu objetivo.</p>
-        </div>
-
-        <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
-          <p class="text-xs font-semibold text-brand-800">PASSO 03</p>
-          <p class="mt-2 font-semibold text-slate-900">Procedimento</p>
-          <p class="mt-2 text-sm text-slate-600">Execução com técnica, focando em resultado natural.</p>
-        </div>
-
-        <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
-          <p class="text-xs font-semibold text-brand-800">PASSO 04</p>
-          <p class="mt-2 font-semibold text-slate-900">Pós</p>
-          <p class="mt-2 text-sm text-slate-600">Orientações e acompanhamento quando necessário.</p>
-        </div>
-      </div>
+    <!-- HERO -->
+    <section id="inicio" class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-brand-50 via-white to-white"></div>
 
       <div
-        class="mt-10 fade-up rounded-2xl bg-brand-800 p-6 md:p-8 text-white flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-        <div>
-          <p class="font-serif text-2xl">Quer agendar uma avaliação gratuita?</p>
-          <p class="text-brand-100 mt-1 text-sm">Clique e fale direto no WhatsApp.</p>
+        class="relative max-w-6xl mx-auto px-6 pt-16 pb-16 min-h-[70vh] flex flex-col justify-center desk:grid desk:grid-cols-2 gap-10 items-center">
+        <div class="fade-up">
+          <p
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-sm sm:text-xs font-medium">
+            Estética facial e corporal
+          </p>
+
+          <h1 class="mt-4 font-serif text-4xl md:text-5xl text-slate-900 leading-tight">
+            Realce sua beleza com naturalidade
+          </h1>
+
+          <p class="mt-4 text-slate-700 text-base md:text-lg">
+            Tratamentos personalizados para valorizar seus traços e fortalecer sua autoestima.
+          </p>
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+              class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2">
+              Agendar avaliação gratuita
+            </a>
+
+            <a href="#procedimentos"
+              class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 hover:border-brand-300 hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2">
+              Ver procedimentos
+            </a>
+          </div>
         </div>
-        <a target="_blank" rel="noopener"
-          href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-          class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-brand-900 hover:bg-brand-50 shadow-soft">
-          Agendar avaliação gratuita
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- SOBRE (texto à esquerda + profissional à direita) -->
-  <section id="sobre" class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
+        <div class="hidden desk:block fade-up md:justify-self-end">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-brand-100/70 rounded-[2.5rem] blur-2xl"></div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-soft ring-soft bg-slate-100">
+              <img src="assets/spa,skincare.webp" alt="Imagem ilustrativa de ambiente de estética"
+                class="w-full h-[420px] md:h-[520px] object-cover" loading="lazy" width="1200" height="900" />
+            </div>
 
-      <!-- COLUNA ESQUERDA: SOBRE A CLÍNICA -->
-      <div class="fade-up">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Sobre a Clínica</h2>
-
-        <p class="mt-4 text-slate-700">
-          A CareDay Estética atua com estética facial e corporal na Zona Leste de São Paulo, com foco em procedimentos
-          como toxina botulínica (Botox), preenchimento facial, bioestimuladores de colágeno, enzimas e escleroterapia.
-        </p>
-
-        <ul class="mt-6 space-y-3 text-sm text-slate-700">
-          <li class="flex gap-3"><span class="mt-0.5">✔️</span> Atendimento com hora marcada</li>
-          <li class="flex gap-3"><span class="mt-0.5">✔️</span> Avaliação personalizada antes do procedimento</li>
-          <li class="flex gap-3"><span class="mt-0.5">✔️</span> Orientações de cuidados e pós</li>
-        </ul>
-
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
-          <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-            class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft">
-            Agendar pelo WhatsApp
-          </a>
-
-          <a href="#procedimentos"
-            class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-200 hover:bg-slate-50">
-            Ver procedimentos
-          </a>
-        </div>
-      </div>
-
-      <!-- COLUNA DIREITA: PROFISSIONAL + FOTO + BOTÕES -->
-      <div class="fade-up">
-
-        <!-- Textos do profissional (sem ser "card") -->
-        <p class="text-sm sm:text-xs font-semibold text-brand-800">Profissional responsável</p>
-
-        <p class="mt-1 text-xl md:text-2xl font-semibold text-slate-900">
-          Dra. Dayana Monteiro
-        </p>
-
-        <p class="mt-1 text-sm text-slate-700">
-          Farmacêutica Esteta • <span class="font-semibold">CRF-SP 88120</span>
-        </p>
-
-        <!-- Card somente da foto -->
-        <div class="mt-4 w-full max-w-md">
-          <img src="assets/dayana.JPG" alt="Dra. Dayana Monteiro - Profissional responsável"
-            class="block w-full max-h-[420px] md:max-h-[460px] object-cover object-top rounded-2xl border border-slate-200 shadow-soft"
-            loading="lazy" />
+            <div class="absolute -bottom-6 left-6 right-6 glass border border-slate-200 rounded-2xl p-4 shadow-soft">
+              <p class="text-sm font-semibold text-slate-900">Sua melhor versão começa aqui</p>
+              <p class="text-sm sm:text-xs text-slate-600 mt-1">Na CareDay Estética, cada procedimento é planejado para
+                valorizar
+                sua beleza</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
+    <!-- AUTOCUIDADO -->
+    <section class="py-14 bg-brand-50 relative overflow-hidden">
 
-    </div>
-  </section>
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
 
-  <!-- ESPACO -->
-  <section id="espaco" class="py-20 bg-neutral-50">
-    <div class="max-w-5xl mx-auto px-6">
+        <!-- Linha decorativa superior -->
+        <div class="w-16 h-[2px] bg-brand-300 mx-auto mb-10"></div>
 
-      <!-- TÍTULO -->
-      <div class="text-center mb-8">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">
-          Nosso Espaço
-        </h2>
-        <p class="mt-3 text-slate-700 max-w-2xl mx-auto">
-          Um ambiente pensado para proporcionar uma experiência acolhedora desde o primeiro atendimento.
+        <!-- Aspas decorativas -->
+        <div class="text-6xl text-brand-200 font-serif leading-none mb-4 select-none">
+          “
+        </div>
+
+        <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+          O autocuidado é o primeiro passo para resgatar sua autoconfiança e fortalecer sua autoestima.
         </p>
-      </div>
 
-      <!-- IMAGEM CONTROLADA -->
-      <div class="flex justify-center">
-        <div class="w-full max-w-3xl rounded-3xl overflow-hidden shadow-soft">
-          <img src="assets/ambiente.jpeg" alt="Ambiente interno da CareDay Estética"
-            class="w-full h-[260px] md:h-[380px] object-cover object-[50%_40%]">
+        <p class="mt-8 text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+          Quando você valoriza e realça sua beleza natural, você não está apenas cuidando da aparência — está
+          reafirmando
+          o seu valor.
+        </p>
+
+        <p class="mt-8 text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+          Você merece se olhar no espelho e se sentir bem, segura e confiante.
+        </p>
+
+        <p class="mt-12 text-2xl md:text-3xl font-serif text-brand-800">
+          Torne-se sua prioridade.
+        </p>
+
+        <p class="mt-6 text-lg text-gray-600">
+          Cuide de você, para continuar cuidando de quem você ama com leveza, força e equilíbrio.
+        </p>
+
+        <!-- Divisor inferior -->
+        <div class="w-16 h-[2px] bg-brand-300 mx-auto mt-12"></div>
+
+      </div>
+    </section>
+
+    <!-- PROCEDIMENTOS -->
+    <section id="procedimentos" class="pt-16 md:pt-20 pb-8 md:pb-12 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div class="fade-up text-center">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">
+            Procedimentos
+          </h2>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-24 items-stretch">
+
+          <!-- Toxina -->
+          <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
+        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
+        flex flex-col h-full">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+              <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
+                <img src="assets/botox.webp" alt="Toxina botulínica" width="900" height="600"
+                  class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
+              Toxina Botulínica
+            </h3>
+
+            <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
+              Suaviza linhas de expressão indesejadas como pé de galinha, linha do bravo na glabela, sorriso triste,
+              rugas
+              dinâmicas na testa. A toxina também é muito usada para hiperidrose, o suor excessivo nas axilas, atinja
+              seus
+              objetivos com naturalidade e confiança.
+            </p>
+
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Toxina%20Botulínica." class="mt-auto inline-flex items-center justify-center px-6 py-2 
+          rounded-full bg-brand-700 text-white text-sm 
+          hover:bg-brand-800 transition">
+              Saiba mais
+            </a>
+          </article>
+
+          <!-- Preenchimento -->
+          <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
+        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
+        flex flex-col h-full">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+              <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
+                <img src="assets/preenchimento.JPG" alt="Preenchimento facial" width="512" height="595"
+                  class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
+              Preenchimento Facial
+            </h3>
+
+            <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
+              Recupere o volume e a harmonia do rosto com equilíbrio e elegância, destaque seus traços e contornos e
+              conquiste uma aparência descansada e confiante.
+            </p>
+
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Preenchimento%20Facial." class="mt-auto inline-flex items-center justify-center px-6 py-2 
+          rounded-full bg-brand-700 text-white text-sm 
+          hover:bg-brand-800 transition">
+              Saiba mais
+            </a>
+          </article>
+
+          <!-- Bioestimuladores -->
+          <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
+        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
+        flex flex-col h-full">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+              <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
+                <img src="assets/colageno.webp" alt="Bioestimuladores de colágeno" width="900" height="600"
+                  class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
+              Bioestimuladores de Colágeno
+            </h3>
+
+            <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
+              Procedimento que ativa a produção natural de colágeno com uma melhora progressiva, trazendo de volta a
+              firmeza, elasticidade e viço da pele.
+            </p>
+
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Bioestimuladores." class="mt-auto inline-flex items-center justify-center px-6 py-2 
+          rounded-full bg-brand-700 text-white text-sm 
+          hover:bg-brand-800 transition">
+              Saiba mais
+            </a>
+          </article>
+
+          <!-- Enzimas -->
+          <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
+        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
+        flex flex-col h-full">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+              <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
+                <img src="assets/intradermoterapia.webp" alt="Intradermoterapia" width="897" height="598"
+                  class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
+              Intradermoterapia
+            </h3>
+
+            <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
+              A intradermoterapia é utilizada para perda de peso total ou localizada, em locais como abdômen, papada,
+              culote, braços, também usada para queda de cabelo e diminuição de celulite.
+            </p>
+
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Intradermoterapia." class="mt-auto inline-flex items-center justify-center px-6 py-2 
+          rounded-full bg-brand-700 text-white text-sm 
+          hover:bg-brand-800 transition">
+              Saiba mais
+            </a>
+          </article>
+
+          <!-- Escleroterapia -->
+          <article class="fade-up relative rounded-2xl bg-white border border-slate-200 
+        p-5 pt-12 md:p-8 md:pt-14 text-center shadow-soft hover:shadow-md transition
+        flex flex-col h-full">
+            <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+              <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-md">
+                <img src="assets/escleroterapia.webp" alt="Escleroterapia" width="900" height="600"
+                  class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <h3 class="mt-3 font-semibold text-slate-900 text-lg md:text-xl leading-snug">
+              Escleroterapia
+            </h3>
+
+            <p class="mt-3 mb-3 text-sm text-slate-600 leading-relaxed">
+              Secagem de vasinhos com acompanhamento e orientações pós-procedimento.
+            </p>
+
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20saber%20sobre%20Escleroterapia." class="mt-auto inline-flex items-center justify-center px-6 py-2 
+          rounded-full bg-brand-700 text-white text-sm 
+          hover:bg-brand-800 transition">
+              Saiba mais
+            </a>
+          </article>
+
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="py-16 md:py-20 bg-slate-50">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="fade-up text-center">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Dúvidas frequentes</h2>
-      </div>
-
-      <div class="mt-10 space-y-3">
-
-        <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-semibold text-slate-900">Vai ficar natural ou dá pra perceber que eu fiz?</span>
-            <span class="text-brand-800 group-open:rotate-45 transition">+</span>
-          </summary>
-          <p class="mt-3 text-base sm:text-sm text-slate-700">
-            Nosso foco é naturalidade. A ideia não é “mudar seu rosto”, e sim harmonizar e realçar o que você já tem. Na
-            avaliação, alinhamos objetivo, quantidade e técnica para evitar exageros.
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="py-16 md:py-20 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Como funciona</h2>
+          <p class="mt-3 text-slate-700 max-w-2xl">
+            Do primeiro contato ao pós-procedimento, cuidamos de cada detalhe.
           </p>
-        </details>
+        </div>
 
-        <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-semibold text-slate-900">Em quanto tempo vejo resultado?</span>
-            <span class="text-brand-800 group-open:rotate-45 transition">+</span>
-          </summary>
-          <p class="mt-3 text-base sm:text-sm text-slate-700">
-            Depende do procedimento. Alguns têm resultado mais rápido e outros são progressivos (como bioestimuladores).
-            Você recebe orientação do que esperar na avaliação.
-          </p>
-        </details>
+        <div class="mt-10 grid md:grid-cols-4 gap-6">
+          <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+            <p class="text-sm sm:text-xs font-semibold text-brand-800">PASSO 01</p>
+            <p class="mt-2 font-semibold text-slate-900">WhatsApp</p>
+            <p class="mt-2 text-sm text-slate-600">Você chama e conta o que quer melhorar.</p>
+          </div>
 
-        <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-semibold text-slate-900">
-              Posso voltar às minhas atividades normais depois do procedimento?</span>
-            <span class="text-brand-800 group-open:rotate-45 transition">+</span>
-          </summary>
-          <p class="mt-3 text-base sm:text-sm text-slate-700">
-            Na maioria dos casos, sim. Pode ocorrer leve inchaço ou hematomas, variando de pessoa para pessoa.
-          </p>
-        </details>
+          <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+            <p class="text-xs font-semibold text-brand-800">PASSO 02</p>
+            <p class="mt-2 font-semibold text-slate-900">Avaliação gratuita</p>
+            <p class="mt-2 text-sm text-slate-600">Sem compromisso. Avaliamos seu caso com cuidado e definimos o melhor
+              caminho para alcançar seu objetivo.</p>
+          </div>
 
-        <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
-          <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
-            <span class="font-semibold text-slate-900">Como funciona o agendamento?</span>
-            <span class="text-brand-800 group-open:rotate-45 transition">+</span>
-          </summary>
-          <p class="mt-3 text-base sm:text-sm text-slate-700">
-            Você chama no WhatsApp, tira dúvidas e escolhe o melhor horário. A avaliação é o primeiro passo para
-            planejar o procedimento.
-          </p>
-        </details>
+          <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+            <p class="text-xs font-semibold text-brand-800">PASSO 03</p>
+            <p class="mt-2 font-semibold text-slate-900">Procedimento</p>
+            <p class="mt-2 text-sm text-slate-600">Execução com técnica, focando em resultado natural.</p>
+          </div>
+
+          <div class="fade-up p-6 rounded-2xl bg-white border border-slate-200 shadow-soft">
+            <p class="text-xs font-semibold text-brand-800">PASSO 04</p>
+            <p class="mt-2 font-semibold text-slate-900">Pós</p>
+            <p class="mt-2 text-sm text-slate-600">Orientações e acompanhamento quando necessário.</p>
+          </div>
+        </div>
 
         <div
-          class="mt-10 fade-up rounded-2xl bg-white border border-slate-200 p-6 shadow-soft flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+          class="mt-10 fade-up rounded-2xl bg-brand-800 p-6 md:p-8 text-white flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
           <div>
-            <p class="font-semibold text-slate-900">Quer agendar ou tirar dúvidas?</p>
-            <p class="text-sm text-slate-600 mt-1">Fale no WhatsApp e escolha o melhor horário.</p>
+            <p class="font-serif text-2xl">Quer agendar uma avaliação gratuita?</p>
+            <p class="text-brand-100 mt-1 text-sm">Clique e fale direto no WhatsApp.</p>
           </div>
           <a target="_blank" rel="noopener"
-            href="https://wa.me/5511947997280?text=Oi!%20Quero%20tirar%20uma%20d%C3%BAvida%20antes%20de%20agendar."
-            class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition">
-            Tirar dúvidas no WhatsApp
+            href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+            class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-white text-brand-900 hover:bg-brand-50 shadow-soft">
+            Agendar avaliação gratuita
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA FINAL -->
-  <section class="py-16 md:py-20 bg-gradient-to-r from-brand-800 via-brand-700 to-brand-800">
-    <div class="max-w-6xl mx-auto px-6">
-      <div
-        class="fade-up rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-white flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+    <!-- SOBRE (texto à esquerda + profissional à direita) -->
+    <section id="sobre" class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-start">
 
-        <div>
-          <div class="w-16 h-[2px] bg-brand-300 mb-6"></div>
+        <!-- COLUNA ESQUERDA: SOBRE A CLÍNICA -->
+        <div class="fade-up">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Sobre a Clínica</h2>
 
-          <h2 class="font-serif text-3xl md:text-4xl">
-            Sua melhor versão começa aqui
+          <p class="mt-4 text-slate-700">
+            A CareDay Estética atua com estética facial e corporal na Zona Leste de São Paulo, com foco em procedimentos
+            como toxina botulínica (Botox), preenchimento facial, bioestimuladores de colágeno, enzimas e
+            escleroterapia.
+          </p>
+
+          <ul class="mt-6 space-y-3 text-sm text-slate-700">
+            <li class="flex gap-3"><span class="mt-0.5">✔️</span> Atendimento com hora marcada</li>
+            <li class="flex gap-3"><span class="mt-0.5">✔️</span> Avaliação personalizada antes do procedimento</li>
+            <li class="flex gap-3"><span class="mt-0.5">✔️</span> Orientações de cuidados e pós</li>
+          </ul>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+              class="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft">
+              Agendar pelo WhatsApp
+            </a>
+
+            <a href="#procedimentos"
+              class="inline-flex items-center justify-center px-5 py-3 rounded-xl border border-slate-200 hover:bg-slate-50">
+              Ver procedimentos
+            </a>
+          </div>
+        </div>
+
+        <!-- COLUNA DIREITA: PROFISSIONAL + FOTO + BOTÕES -->
+        <div class="fade-up">
+
+          <!-- Textos do profissional (sem ser "card") -->
+          <p class="text-sm sm:text-xs font-semibold text-brand-800">Profissional responsável</p>
+
+          <p class="mt-1 text-xl md:text-2xl font-semibold text-slate-900">
+            Dra. Dayana Monteiro
+          </p>
+
+          <p class="mt-1 text-sm text-slate-700">
+            Farmacêutica Esteta • <span class="font-semibold">CRF-SP 88120</span>
+          </p>
+
+          <!-- Card somente da foto -->
+          <div class="mt-4 w-full max-w-md">
+            <img src="assets/dayana.JPG" alt="Dra. Dayana Monteiro - Profissional responsável" width="960" height="1181"
+              class="block w-full max-h-[420px] md:max-h-[460px] object-cover object-top rounded-2xl border border-slate-200 shadow-soft"
+              loading="lazy" />
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+    </section>
+
+    <!-- ESPACO -->
+    <section id="espaco" class="py-20 bg-neutral-50">
+      <div class="max-w-5xl mx-auto px-6">
+
+        <!-- TÍTULO -->
+        <div class="text-center mb-8">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">
+            Nosso Espaço
           </h2>
-
-          <p class="mt-3 text-brand-100 text-lg">
-            Agende uma avaliação gratuita e descubra o tratamento ideal para valorizar sua beleza com naturalidade e
-            segurança.
+          <p class="mt-3 text-slate-700 max-w-2xl mx-auto">
+            Um ambiente pensado para proporcionar uma experiência acolhedora desde o primeiro atendimento.
           </p>
         </div>
 
-        <a target="_blank" rel="noopener"
-          href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-          class="inline-flex text-center items-center justify-center px-7 py-4 rounded-xl bg-white text-brand-900 font-semibold hover:bg-brand-50 shadow-lg transition-all duration-300 hover:scale-105">
-          Agendar avaliação
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTATO -->
-  <section id="contato" class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="fade-up">
-        <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Contato e localização</h2>
-        <p class="mt-3 text-slate-700">Estrada do Bandeirante, 1642 - Vila Andrea, Ferraz de Vasconcelos - SP, 08537-010
-        </p>
-      </div>
-
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
-        <div class="fade-up rounded-2xl border border-slate-200 overflow-hidden shadow-soft bg-slate-100">
-          <iframe title="Mapa da clínica" class="w-full h-[360px]" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!4v1771778415490!6m8!1m7!1sxRQ4mPsT1ME4fG2m7lxRkw!2m2!1d-23.53487515353793!2d-46.39289592703442!3f10.639210230556376!4f13.897058929445961!5f0.49776923351084623">
-          </iframe>
+        <!-- IMAGEM CONTROLADA -->
+        <div class="flex justify-center">
+          <div class="w-full max-w-3xl rounded-3xl overflow-hidden shadow-soft">
+            <img src="assets/ambiente.jpeg" alt="Ambiente interno da CareDay Estética" width="1205" height="1280"
+              class="w-full h-[260px] md:h-[380px] object-cover object-[50%_40%]">
+          </div>
         </div>
 
-        <div class="fade-up rounded-2xl border border-slate-200 p-6 shadow-soft bg-white">
-          <p class="font-semibold text-slate-900">CareDay Estética</p>
-          <p class="mt-2 text-base sm:text-sm text-slate-700">Estrada do Bandeirante, 1642 - Vila Andrea, Ferraz de
-            Vasconcelos - SP
-          </p>
+      </div>
+    </section>
 
-          <div class="mt-6 space-y-2 text-base sm:text-sm text-slate-700">
-            <p><span class="font-medium">Horário:</span> Seg–Sáb 10h–20h</p>
-            <p><span class="font-medium">Telefone:</span> <a class="text-brand-800 hover:underline" target="_blank"
-                rel="noopener"
-                href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">(11)
-                94799-7280</a></p>
-            <p><span class="font-medium">WhatsApp:</span>
-              <a class="text-brand-800 hover:underline" target="_blank" rel="noopener"
-                href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
-                Clique para chamar
-              </a>
+    <!-- FAQ -->
+    <section id="faq" class="py-16 md:py-20 bg-slate-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="fade-up text-center">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Dúvidas frequentes</h2>
+        </div>
+
+        <div class="mt-10 space-y-3">
+
+          <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <span class="font-semibold text-slate-900">Vai ficar natural ou dá pra perceber que eu fiz?</span>
+              <span class="text-brand-800 group-open:rotate-45 transition">+</span>
+            </summary>
+            <p class="mt-3 text-base sm:text-sm text-slate-700">
+              Nosso foco é naturalidade. A ideia não é “mudar seu rosto”, e sim harmonizar e realçar o que você já tem.
+              Na
+              avaliação, alinhamos objetivo, quantidade e técnica para evitar exageros.
+            </p>
+          </details>
+
+          <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <span class="font-semibold text-slate-900">Em quanto tempo vejo resultado?</span>
+              <span class="text-brand-800 group-open:rotate-45 transition">+</span>
+            </summary>
+            <p class="mt-3 text-base sm:text-sm text-slate-700">
+              Depende do procedimento. Alguns têm resultado mais rápido e outros são progressivos (como
+              bioestimuladores).
+              Você recebe orientação do que esperar na avaliação.
+            </p>
+          </details>
+
+          <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <span class="font-semibold text-slate-900">
+                Posso voltar às minhas atividades normais depois do procedimento?</span>
+              <span class="text-brand-800 group-open:rotate-45 transition">+</span>
+            </summary>
+            <p class="mt-3 text-base sm:text-sm text-slate-700">
+              Na maioria dos casos, sim. Pode ocorrer leve inchaço ou hematomas, variando de pessoa para pessoa.
+            </p>
+          </details>
+
+          <details class="fade-up group rounded-2xl border border-slate-200 bg-white p-5 shadow-soft">
+            <summary class="cursor-pointer list-none flex items-center justify-between gap-4">
+              <span class="font-semibold text-slate-900">Como funciona o agendamento?</span>
+              <span class="text-brand-800 group-open:rotate-45 transition">+</span>
+            </summary>
+            <p class="mt-3 text-base sm:text-sm text-slate-700">
+              Você chama no WhatsApp, tira dúvidas e escolhe o melhor horário. A avaliação é o primeiro passo para
+              planejar o procedimento.
+            </p>
+          </details>
+
+          <div
+            class="mt-10 fade-up rounded-2xl bg-white border border-slate-200 p-6 shadow-soft flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+            <div>
+              <p class="font-semibold text-slate-900">Quer agendar ou tirar dúvidas?</p>
+              <p class="text-sm text-slate-600 mt-1">Fale no WhatsApp e escolha o melhor horário.</p>
+            </div>
+            <a target="_blank" rel="noopener"
+              href="https://wa.me/5511947997280?text=Oi!%20Quero%20tirar%20uma%20d%C3%BAvida%20antes%20de%20agendar."
+              class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2">
+              Tirar dúvidas no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 md:py-20 bg-gradient-to-r from-brand-800 via-brand-700 to-brand-800">
+      <div class="max-w-6xl mx-auto px-6">
+        <div
+          class="fade-up rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-white flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
+
+          <div>
+            <div class="w-16 h-[2px] bg-brand-300 mb-6"></div>
+
+            <h2 class="font-serif text-3xl md:text-4xl">
+              Sua melhor versão começa aqui
+            </h2>
+
+            <p class="mt-3 text-brand-100 text-lg">
+              Agende uma avaliação gratuita e descubra o tratamento ideal para valorizar sua beleza com naturalidade e
+              segurança.
             </p>
           </div>
 
-          <div class="mt-8 flex gap-3 flex-col sm:flex-row">
-            <a class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft"
-              target="_blank" rel="noopener"
-              href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
-              Agendar no WhatsApp
-            </a>
-            <a class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 hover:bg-slate-50"
-              target="_blank" rel="noopener" href="https://maps.app.goo.gl/U69qK6S9Xm35yfQf8">
-              Abrir no Maps
-            </a>
+          <a target="_blank" rel="noopener"
+            href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+            class="inline-flex text-center items-center justify-center px-7 py-4 rounded-xl bg-white text-brand-900 font-semibold hover:bg-brand-50 shadow-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2">
+            Agendar avaliação
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="py-16 md:py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="fade-up">
+          <h2 class="font-serif text-3xl md:text-4xl text-slate-900">Contato e localização</h2>
+          <p class="mt-3 text-slate-700">Estrada do Bandeirante, 1642 - Vila Andrea, Ferraz de Vasconcelos - SP,
+            08537-010
+          </p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+          <div class="fade-up rounded-2xl border border-slate-200 overflow-hidden shadow-soft bg-slate-100">
+            <iframe title="Mapa da clínica" class="w-full h-[360px]" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!4v1771778415490!6m8!1m7!1sxRQ4mPsT1ME4fG2m7lxRkw!2m2!1d-23.53487515353793!2d-46.39289592703442!3f10.639210230556376!4f13.897058929445961!5f0.49776923351084623">
+            </iframe>
+          </div>
+
+          <div class="fade-up rounded-2xl border border-slate-200 p-6 shadow-soft bg-white">
+            <p class="font-semibold text-slate-900">CareDay Estética</p>
+            <p class="mt-2 text-base sm:text-sm text-slate-700">Estrada do Bandeirante, 1642 - Vila Andrea, Ferraz de
+              Vasconcelos - SP
+            </p>
+
+            <div class="mt-6 space-y-2 text-base sm:text-sm text-slate-700">
+              <p><span class="font-medium">Horário:</span> Seg–Sáb 10h–20h</p>
+              <p><span class="font-medium">Telefone:</span> <a
+                  class="text-brand-800 hover:underline focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+                  target="_blank" rel="noopener"
+                  href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">(11)
+                  94799-7280</a></p>
+              <p><span class="font-medium">WhatsApp:</span>
+                <a class="text-brand-800 hover:underline focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 rounded-md"
+                  target="_blank" rel="noopener"
+                  href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
+                  Clique para chamar
+                </a>
+              </p>
+            </div>
+
+            <div class="mt-8 flex gap-3 flex-col sm:flex-row">
+              <a class="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-brand-700 text-white hover:bg-brand-800 shadow-soft focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2"
+                target="_blank" rel="noopener"
+                href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o.">
+                Agendar no WhatsApp
+              </a>
+              <a class="inline-flex items-center justify-center px-6 py-3 rounded-xl border border-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2"
+                target="_blank" rel="noopener" href="https://maps.app.goo.gl/U69qK6S9Xm35yfQf8">
+                Abrir no Maps
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer class="border-t border-slate-200">
@@ -714,20 +761,57 @@
     </div>
   </footer>
 
-  <!-- Botão flutuante WhatsApp (Font Awesome) -->
+  <!-- Botão flutuante WhatsApp -->
   <a href="https://wa.me/5511947997280?text=Oi!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank"
     rel="noopener"
-    class="fixed z-50 bottom-5 right-5 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg grid place-items-center transition-transform hover:scale-105"
-    aria-label="Falar no WhatsApp">
-    <i class="fa-brands fa-whatsapp text-white text-3xl"></i>
+    class="fixed z-50 bottom-5 right-5 w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 shadow-lg grid place-items-center transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2"
+    aria-label="Falar no WhatsApp em nova aba">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="w-8 h-8" aria-hidden="true" fill="currentColor">
+      <path class="text-white"
+        d="M19.11 17.21c-.27-.13-1.6-.79-1.85-.88-.25-.09-.43-.13-.61.13-.18.27-.7.88-.86 1.06-.16.18-.31.2-.58.07-.27-.13-1.12-.41-2.13-1.3-.79-.71-1.32-1.58-1.47-1.85-.16-.27-.02-.41.12-.54.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.61-1.47-.84-2.02-.22-.53-.45-.45-.61-.46h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27s.97 2.64 1.1 2.82c.13.18 1.9 2.9 4.6 4.07.64.27 1.14.43 1.53.55.64.2 1.22.17 1.68.1.51-.08 1.6-.65 1.83-1.28.22-.63.22-1.17.16-1.28-.07-.1-.25-.17-.52-.3Z" />
+      <path class="text-white"
+        d="M16.03 3.2c-7.07 0-12.79 5.72-12.79 12.79 0 2.25.58 4.45 1.69 6.4L3.2 28.8l6.58-1.69a12.73 12.73 0 0 0 6.25 1.6h.01c7.07 0 12.79-5.72 12.79-12.79S23.1 3.2 16.03 3.2Zm0 23.45h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.91 1 1.04-3.81-.25-.39a10.63 10.63 0 1 1 8.92 4.91Z" />
+    </svg>
   </a>
 
   <script>
     // Mobile menu
     const btnMobile = document.getElementById('btnMobile');
     const menuMobile = document.getElementById('menuMobile');
-    btnMobile?.addEventListener('click', () => menuMobile.classList.toggle('hidden'));
-    menuMobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menuMobile.classList.add('hidden')));
+
+    function closeMobileMenu() {
+      menuMobile.classList.add('hidden');
+      menuMobile.setAttribute('aria-hidden', 'true');
+      btnMobile.setAttribute('aria-expanded', 'false');
+      btnMobile.setAttribute('aria-label', 'Abrir menu');
+    }
+
+    function openMobileMenu() {
+      menuMobile.classList.remove('hidden');
+      menuMobile.setAttribute('aria-hidden', 'false');
+      btnMobile.setAttribute('aria-expanded', 'true');
+      btnMobile.setAttribute('aria-label', 'Fechar menu');
+    }
+
+    btnMobile?.addEventListener('click', () => {
+      const isHidden = menuMobile.classList.contains('hidden');
+      if (isHidden) {
+        openMobileMenu();
+      } else {
+        closeMobileMenu();
+      }
+    });
+
+    menuMobile?.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', closeMobileMenu)
+    );
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !menuMobile.classList.contains('hidden')) {
+        closeMobileMenu();
+        btnMobile.focus();
+      }
+    });
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
