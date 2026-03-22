@@ -1,39 +1,60 @@
-# Clínica de Estética – Site Institucional
+# CareDay Estética
 
-Projeto de site institucional desenvolvido com HTML5, Tailwind CSS e JavaScript.
+![Status](https://img.shields.io/badge/status-online-success)
+![Deploy](https://img.shields.io/badge/deploy-GitHub%20Pages-222222)
+![Tailwind](https://img.shields.io/badge/Tailwind-build%20local-38B2AC)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-## 📌 Sobre o projeto
+Site institucional desenvolvido para a **CareDay Estética**, com foco em presença digital, apresentação dos serviços e captação de contatos.
 
-Site estático responsivo para clínica de estética, contendo:
+## Sobre o projeto
 
-- Seção Hero
-- Sobre a Clínica
-- Procedimentos
-- Resultados Reais
-- FAQ (Dúvidas Frequentes)
+A proposta do projeto foi criar uma landing page responsiva, objetiva e visualmente alinhada à identidade da clínica, reunindo em uma única página as principais informações para potenciais clientes.
+
+O site apresenta:
+
+- Hero principal com proposta de valor
+- Seção sobre a clínica
+- Apresentação da profissional responsável
+- Procedimentos realizados
+- Resultados reais
+- FAQ
 - Contato com mapa
-- Botão flutuante WhatsApp
-- Menu mobile responsivo
+- Botão flutuante do WhatsApp
+- Navegação mobile responsiva
 
-## 🛠 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - HTML5
-- Tailwind CSS (CDN)
+- Tailwind CSS (build local)
 - JavaScript Vanilla
-- Imagens otimizadas em WebP
+- Imagens otimizadas para web
 
-## 🚀 Deploy
+## Acesso
 
-Hospedado via GitHub Pages.
+O projeto está publicado em:
 
-## 📂 Estrutura
+**https://esteticacareday.com.br/**
 
-/ (root)
-│── index.html
-│── /assets
-│── README.md
-│── LICENSE
+## Publicação
 
-## 📄 Licença
+Hospedado via **GitHub Pages** com domínio personalizado.
 
-Este projeto está sob a licença MIT.
+## Estrutura do projeto
+
+```text
+/
+├── assets/
+├── src/
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+├── robots.txt
+├── sitemap.xml
+└── CNAME
+```
+
+## Licença
+
+Este projeto está sob a licença **MIT**.
